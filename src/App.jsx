@@ -12,6 +12,7 @@ import SignUpTwo from "./components/SignUpTwo"
 import SignUpThree from "./components/SignUpThree"
 import SignUpFour from "./components/SignUpFour"
 import LogIn from "./components/logIn"
+import BandIntroPage from "./pages/BandIntroPage"
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
       <Route path='/search' element={<BandMapPage />}></Route>
       <Route path='/event' element={<CurrentEventPage />}></Route>
       <Route path='/band' element={<BandDiscoverPage />}></Route>
+      <Route path='/band1' element={<BandIntroPage />}></Route>
       <Route path='/chatboard' element={<ChatBoardPage />}></Route>
       <Route path='/calendar' element={<PersonalCalendarPage />}></Route>
       <Route path='/member' element={<MemberPage />}></Route>

@@ -929,6 +929,7 @@ main {
         width: 60px;
         height: 60px;
         opacity: 0.6;
+        z-index: $z_index-l;
         border: 1px solid $Neutral_color_white;
         transition: $speed-cubebuttomhover;
 
@@ -958,17 +959,70 @@ main {
         @extend %box-center;
 
         .banner-card {
-            // display: flex;
+            position: relative;
             width: 700px;
             height: 500px;
             flex-shrink: 0;
             margin: $interval_0_24;
             cursor: pointer;
 
-            img {
+            .mask {
+                position: absolute;
+            }
+
+            .event-img {
                 object-fit: cover;
                 width: 100%;
                 height: 100%;
+            }
+        }
+
+        .gallery-image-wrapper {
+            position: relative;
+            width: 700px;
+            height: 500px;
+            overflow: hidden;
+            margin: $interval_0_24;
+            flex-shrink: 0;
+
+            .gallery-image {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+
+            .svg-overlay {
+                position: absolute;
+                object-fit: cover;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                z-index: 2;
+
+            }
+
+            .overlay-text {
+                display: flex;
+                width: 120%;
+                height: auto;
+                position: absolute;
+                top: -4px;
+                left: -32px;
+                padding: 8px 4px;
+                font-family: $font_title_dela;
+                font-size: $fontsize_36;
+                overflow: hidden;
+                z-index: 3;
+                color: $Neutral_color_white;
+                background-color: $Neutral_color_black;
+                white-space: nowrap;
+                transform: rotate(-8deg);
+
+                .text {
+                    margin-left: 16px;
+                }
             }
         }
     }
@@ -1227,6 +1281,7 @@ main {
 #bandmap-main {
     position: relative;
     z-index: 0;
+    overflow: hidden;
 
     .linear-bg {
         background: linear-gradient(to bottom, $Primary_color_orange, $Neutral_color_white, $Primary_color_pink);
@@ -1303,7 +1358,7 @@ main {
     .newsTicker {
         width: 110%;
         height: 80px;
-        transform: rotate(-3deg);
+        transform: rotate(-3deg) translateX(-10px);
         margin-bottom: $distance_60;
 
         span {
@@ -1325,6 +1380,7 @@ main {
 #currentevent-main {
     position: relative;
     z-index: 0;
+    overflow: hidden;
 
     .linear-bg {
         background: linear-gradient(to bottom, $Primary_color_blue, $Neutral_color_white, $Primary_color_red);
@@ -1346,8 +1402,9 @@ main {
 
     /* current event跑馬燈 */
     .newsTicker {
+        width: 110%;
         height: 80px;
-        transform: rotate(-3deg);
+        transform: rotate(-3deg) translateX(-10px);
         margin-bottom: $distance_60;
 
         span {
@@ -1389,7 +1446,7 @@ main {
         background-color: $Primary_color_pink;
     }
 
-    /* // 背景漸層 */
+    /* 背景漸層 */
     .linear-bg {
         background: linear-gradient(to bottom, $Primary_color_orange, $Neutral_color_white);
         z-index: -1;
@@ -1408,146 +1465,187 @@ main {
             opacity: .3;
         }
     }
+}
 
-    //* 樂團介紹背景 */
+/* 各樂團介紹分頁 */
+#bandintro-main {
+    position: relative;
+
     .background {
-        width: 100vw;
-        height: auto;
-        background-image: url('/public/images/樂團圖片.png');
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
+        position: relative;
+        width: 100%;
+        height: 80vh;
+        z-index: -100;
 
-        .blank {
-            height: 80vh;
+        img {
+            position: fixed;
+            object-fit: cover;
+            width: 100%;
+            height: 100vh;
+            z-index: -99;
+
         }
 
+        .overlay-bg {
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            z-index: -98;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0), $Opacity_b_75);
+        }
     }
 
     .content {
-        width: 100vw;
+        width: 100%;
         justify-content: flex-start;
         align-items: center;
-    }
 
-    /* 樂團介紹區塊 */
-    .band-intro {
-        width: 100%;
-        height: auto;
-        padding: 24px 96px;
-        background: linear-gradient(to bottom, $Opacity_b_75, $Opacity_b_50);
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        display: inline-flex;
-
-        .band-name {
-            font-size: $fontsize_title;
-            font-family: $font_title_dela;
-            color: $Primary_color_orange;
-            margin-bottom: $distance_l;
-        }
-
-        .band-description {
-            line-height: 2rem;
-        }
-    }
-
-    /* 近期演出區塊 */
-    .upcoming-shows {
-        margin-top: 20px;
-        padding: 24px 96px;
-        background: linear-gradient(to bottom, $Opacity_b_75, $Opacity_b_50);
-
-        .shows-title {
-            font-size: $fontsize_title;
-            font-family: $font_title_dela;
-            color: $Primary_color_orange;
-            padding-bottom: $distance_l;
-        }
-
-        .show-card {
-            display: flex;
-            border: 5px solid $Neutral_color_white;
-            padding: 24px 48px;
-            margin-bottom: $distance_l;
-            justify-content: space-between;
-
-            .show-info {
-                /* display: flex; */
-                line-height: 2rem;
-
-                .show-date {
-                    color: $Primary_color_orange;
-                    font-weight: $font_bold;
-                    font-size: $fontsize_subtitle;
-
-                }
-
-                .show-title {
-                    @extend %line-single;
-                    font-size: $fontsize_16;
-                    font-weight: $font_bold;
-                }
-            }
-
-            .next-btn {
-                background-color: transparent;
-            }
-        }
-
-    }
-
-
-    /* 音樂專輯區塊 */
-    .music-albums {
-        // display: flex;
-        // width: 100%;
-        // height: auto;
-        // padding: 32px 0;
-        // margin-top: 20px;
-        // background: linear-gradient(to bottom, $Opacity_b_75, $Opacity_b_50);
-        // flex-direction: column;
-        // justify-content: flex-start;
-        // align-items: flex-start;
-        margin-top: 20px;
-        padding: 24px 0;
-        background: linear-gradient(to bottom, $Opacity_b_75, $Opacity_b_50);
-
-        .music-title {
-            padding: 0 96px;
-            font-size: $fontsize_title;
-            font-family: $font_title_dela;
-            color: $Primary_color_orange;
-            padding-bottom: $distance_l;
-        }
-
-        .album-grid {
-            height: 100%;
-            display: flex;
+        /* 樂團介紹區塊 */
+        .band-intro {
+            padding: 24px 96px;
+            background: linear-gradient(to bottom, $Opacity_b_75, $Opacity_b_50);
+            flex-direction: column;
             justify-content: center;
-            margin: 0 20px;
+            align-items: flex-start;
+            display: inline-flex;
 
-            .album-card {
-                margin: 20px;
-                justify-content: center;
-                text-align: center;
 
-                .album-title {
-                    font-size: 1$fontsize_16;
-                    font-weight: $font_bold;
-                }
-
-                .album-cover {
-                    object-fit: cover;
-                }
+            .band-name {
+                font-size: $fontsize_title;
+                font-family: $font_title_dela;
+                color: $Primary_color_orange;
+                margin-bottom: $distance_l;
             }
 
+            .band-description {
+                line-height: 2rem;
+                font-size: $fontsize_content;
+                color: $Neutral_color_white;
+                letter-spacing: $letterspacing_10per;
+            }
+        }
+
+        /* 近期演出區塊 */
+        .upcoming-shows {
+            margin-top: $distance_l;
+            padding: 24px 96px;
+            background: linear-gradient(to bottom, $Opacity_b_75, $Opacity_b_50);
+
+            .shows-title {
+                font-size: $fontsize_title;
+                font-family: $font_title_dela;
+                color: $Primary_color_orange;
+                padding-bottom: $distance_l;
+            }
+
+            .show-card {
+                @extend %box-spacebetween;
+                font-family: 'inter';
+                border: 5px solid $Neutral_color_white;
+                padding: 24px 48px;
+                margin-bottom: $distance_l;
+                color: $Neutral_color_white;
+                transition: $speed-cubebuttomhover;
+                cursor: pointer;
+
+                &:hover {
+                    transform: translateX(10px);
+                    background-color: $Opacity_b_50;
+                }
+
+                .show-info {
+                    line-height: 2rem;
+
+                    .show-date {
+                        color: $Primary_color_orange;
+                        font-weight: $font_bold;
+                        font-size: $fontsize_subtitle;
+                    }
+
+                    .show-title {
+                        @extend %line-single;
+                        font-size: $fontsize_content;
+                        font-weight: $font_bold;
+                    }
+                }
+
+                .next-btn {
+                    background: none;
+                    border: none;
+                }
+            }
+        }
+
+        /* 音樂專輯區塊 */
+        .music-albums {
+            margin-top: $distance_l;
+            padding: 24px 96px;
+            background: linear-gradient(to bottom, $Opacity_b_75, $Opacity_b_50);
+
+            .music-title {
+                font-size: $fontsize_title;
+                font-family: $font_title_dela;
+                color: $Primary_color_orange;
+                padding-bottom: $distance_l;
+            }
+
+            .album-grid {
+                display: flex;
+
+                .album-card {
+                    width: 280px;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    flex-direction: column;
+                    margin-right: $distance_xxl;
+
+                    .album-cover {
+                        object-fit: cover;
+                        height: 280px;
+
+                        margin-bottom: $distance_s;
+                    }
+
+                    .album-title {
+                        font-size: $fontsize_16;
+                        font-weight: $font_medium;
+                        color: $Neutral_color_white;
+
+                    }
+                }
+            }
+        }
+
+        /* 其他樂團輪播區 */
+        .gallery-container {
+            margin-top: $distance_l;
+            padding: 24px 0 24px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            font-family: $font_title_dela;
+
+            .gallery-title {
+                padding: 0 96px;
+                font-size: $fontsize_title;
+                font-family: $font_title_dela;
+                color: $Primary_color_orange;
+                padding-bottom: $distance_l;
+            }
+
+            .banner-section {
+                margin-bottom: 0;
+
+                .gallery-image-wrapper {
+                    opacity: 0.7;
+                    transition: $speed-cubebuttomhover;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
         }
     }
 }
@@ -1555,24 +1653,23 @@ main {
 /* 行事曆頁面 */
 .calendar {
     height: calc(100vh - 55px);
-    margin: 20px auto;
     background: $Neutral_color_white;
-    font-family: $font_title_dela, sans-serif;
-    // box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-family: $font_title_dela;
     overflow: hidden;
 
     .menu {
-        @extend %box-spacebetween;
-        padding: 10px 20px;
+        position: relative;
+        @extend %box-spacearound;
+        padding: $distance_s;
         background: $Primary_color_orange;
         color: $Neutral_color_white;
 
         button {
-            font-size: 24px;
+            position: absolute;
             background: none;
             border: none;
             cursor: pointer;
-            opacity: 0.5;
+            opacity: 0.6;
             transition: $speed-cubebuttomhover;
 
             &:hover {
@@ -1580,7 +1677,24 @@ main {
             }
         }
 
+        .left {
+            left: 100px;
+
+            &:hover {
+                transform: translateX(-10px);
+            }
+        }
+
+        .right {
+            right: 100px;
+
+            &:hover {
+                transform: translateX(10px);
+            }
+        }
+
         h2 {
+            margin: 0;
             font-size: $fontsize_40;
             text-transform: uppercase;
             font-family: $font_title_dela;
@@ -1590,48 +1704,60 @@ main {
     }
 
     .days {
-
         display: grid;
         text-align: center;
         font-size: $fontsize_subtitle;
         grid-template-columns: repeat(7, 1fr);
         background: $Neutral_color_black;
-        padding: 8px 0;
+        padding: 12px 0;
         color: $Neutral_color_white;
     }
 
     .body {
+        height: 100%;
+
         .row {
+            height: 16vh;
             display: grid;
+            text-align: center;
             grid-template-columns: repeat(7, 1fr);
-            gap: 5px;
 
             .cell {
-                height: 80px;
                 display: flex;
                 justify-content: center;
-                align-items: center;
-                font-size: 18px;
-                font-weight: bold;
+                align-items: flex-start;
+                font-size: $fontsize_subtitle;
+                padding-top: $distance_xs;
                 cursor: pointer;
-                border-radius: 5px;
                 transition: 0.3s ease;
 
                 &.disabled {
-                    color: $disabled-color;
+                    color: $Primary_color_beige !important;
+                    background-color: lighten($Primary_color_beige, 40%);
                     pointer-events: none;
+                    cursor: not-allowed;
                 }
 
                 &.today {
-                    background: $today-bg-color;
-                    color: $today-text-color;
-                    border-radius: 5px;
+                    background: $Primary_color_beige;
+                    color: $Neutral_color_white;
                 }
 
                 .number {
                     display: inline-block;
+                    color: $Neutral_color_black;
                 }
             }
+        }
+    }
+}
+
+.cell {
+    &.disabled {
+        .number {
+            color: $Opacity_b_25 !important; // 灰色
+            pointer-events: none;
+            cursor: not-allowed;
         }
     }
 }
@@ -2286,6 +2412,114 @@ main {
         .orange-btn {
             background-color: $Primary_color_orange;
             border: none;
+        }
+    }
+}
+
+/* 會員專區頁面 */
+.collect-content {
+    height: calc(100vh - 55px);
+    margin-top: 55px;
+
+    .collect-a {
+        flex-grow: 1;
+        margin-left: 205px;
+        padding: 24px;
+        overflow-y: auto;
+
+        h2 {
+            font-family: $font_title_dela;
+            font-size: $fontsize_36;
+            color: $Primary_color_orange;
+            margin-bottom: $distance_m;
+        }
+
+        .card-list {
+            display: flex;
+            flex-wrap: wrap;
+
+            .card {
+                width: 400px;
+                margin: 0 16px 16px 0;
+
+                &:hover {
+                    box-shadow: none;
+                    transform: none;
+                }
+            }
+        }
+    }
+}
+
+#member-bar {
+    @extend %box-spacebetween;
+    position: fixed; // 確保它固定在視窗
+    top: 0; // 置頂
+    left: 0; // 確保靠左
+    width: 100%; // 占滿整個視窗寬度
+    height: 55px;
+    padding: 0 40px;
+    background-color: $Neutral_color_black;
+    z-index: $z_index_l;
+
+    img {
+        width: 220px;
+        padding: 12px 12px 12px 0;
+    }
+
+    .menu {
+        @extend %box-center;
+
+        a {
+            width: 32px;
+            height: 32px;
+            margin-left: 16px;
+        }
+
+        .icon-member {
+            background-image: url('public/images/icon/icon-member.svg');
+        }
+
+        .icon-msg {
+            background-image: url('public/images/icon/icon-msg.svg');
+        }
+    }
+}
+
+/* sidebar */
+#sidebar {
+    width: 205px;
+    height: calc(100vh - 55px);
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding: 12px;
+    /* 允許垂直滾動 */
+    background-color: $Neutral_color_white;
+
+    .nav {
+        margin: 10px;
+        font-size: $fontsize_16;
+
+        .section-title {
+            padding: 18px 16px;
+            border-bottom: 1px solid rgba($Neutral_color_black, 0.2);
+            font-weight: $font_bold;
+            color: $Opacity_b_75;
+        }
+
+        li a {
+            display: block;
+            padding: 18px 16px;
+            color: $Opacity_b_50;
+            text-decoration: none;
+            transition: all 0.3s;
+
+            &:hover {
+                background-color: $Primary_color_beige;
+                color: $Neutral_color_black;
+            }
         }
     }
 }

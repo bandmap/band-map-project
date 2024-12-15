@@ -1,9 +1,7 @@
 import { useEffect } from "react"
-import BandIntro from "../components/BandIntro"
 import Footer from "../components/Footer"
-import ImageGallery from "../components/ImageGallery"
 import NavBar from "../components/NavBar"
-import BandPage from "../components/BandPage"
+import CarouselBand from "../components/CarouselBand"
 
 function BandDiscoverPage() {
     useEffect(() => {
@@ -31,11 +29,13 @@ function BandDiscoverPage() {
                             <img src="/public/images/line.svg" alt="" />
                         </div>
                     </div>
+                    {/* 輪播banner區 */}
+                    <CarouselBand />
                 </div>
-                
+
             </main>
             <footer>
-                {/* <Footer /> */}
+                {<Footer />}
             </footer>
         </>
     )

@@ -53,19 +53,19 @@ a {
 }
 
 /* 日曆樣式 */
-.newsTicker .bandmap-wrapper, .newsTicker span, #cubes .cube-left .row-left-down .cube3, #cubes .cube-left .row-left-down .cube3 .arrow-roll, #cubes .cube-left .row-left-down .row-right .row-1 .cube4, #cubes .cube-left .row-left-down .row-right .row-1 .cube5, #cubes .cube-left .row-left-down .row-right .row-1 .cube5 figure, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .row-right-left-up .cube7, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9 figure, #cubes .cube-left .row-left-down .row-right .row-2 .cube10, #cubes .cube-right .cube-right-up .cube11, #cubes .cube-right .cube-right-up .cube12, #cubes .cube-right .cube-right-up .cube12 .note-roll-cube12, #cubes .cube-right .cube13, #footer, #footer .footer-main .menu, .box-roll, .box-roll .box-intro .box-pic, #bandmap-page figure, #currentevent-page .hover-text .text-left .place, #chatboard-page .buttons .button, .topbar, .topbar .left-part, .topbar .right-part, .banner-section, .banner-section .carousel, .card .bottom-line .btns .collect-btn, .card-long .card-right .bottom-line .btns .collect-btn, #bandmap-main .search-section, #currentevent-main .cards, #chatboard-main .main-area .searchbar .magnifier, .event-page .content-down .right-part .info-sec .share, .event-page .cards-bottom, #login-page, #login-page .login-left, .login-popup, .login-card, .login-card .card-content form, .login-card .login-btns {
+.newsTicker .bandmap-wrapper, .newsTicker span, #cubes .cube-left .row-left-down .cube3, #cubes .cube-left .row-left-down .cube3 .arrow-roll, #cubes .cube-left .row-left-down .row-right .row-1 .cube4, #cubes .cube-left .row-left-down .row-right .row-1 .cube5, #cubes .cube-left .row-left-down .row-right .row-1 .cube5 figure, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .row-right-left-up .cube7, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9 figure, #cubes .cube-left .row-left-down .row-right .row-2 .cube10, #cubes .cube-right .cube-right-up .cube11, #cubes .cube-right .cube-right-up .cube12, #cubes .cube-right .cube-right-up .cube12 .note-roll-cube12, #cubes .cube-right .cube13, #footer, #footer .footer-main .menu, .box-roll, .box-roll .box-intro .box-pic, #bandmap-page figure, #currentevent-page .hover-text .text-left .place, #chatboard-page .buttons .button, .topbar, .topbar .left-part, .topbar .right-part, .banner-section, .banner-section .carousel, .card .bottom-line .btns .collect-btn, .card-long .card-right .bottom-line .btns .collect-btn, #bandmap-main .search-section, #currentevent-main .cards, #chatboard-main .main-area .searchbar .magnifier, .event-page .content-down .right-part .info-sec .share, .event-page .cards-bottom, #login-page, #login-page .login-left, .login-popup, .login-card, .login-card .card-content form, .login-card .login-btns, #member-bar .menu {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-#bandmap-page, #banddiscover-page, #currentevent-page, #chatboard-page, #personalcal-page {
+#bandmap-page, #banddiscover-page, #currentevent-page, #chatboard-page, #personalcal-page, .calendar .menu {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-#footer .footer-main, .card .bottom-line, .card-long .card-right .bottom-line, .calendar .menu, #chatboard-main .main-area .searchbar, .login-popup .flow, .login-card .card-content form .remember-me {
+#footer .footer-main, .card .bottom-line, .card-long .card-right .bottom-line, #bandintro-main .content .upcoming-shows .show-card, #chatboard-main .main-area .searchbar, .login-popup .flow, .login-card .card-content form .remember-me, #member-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -77,7 +77,7 @@ a {
 }
 
 /* 單行省略 */
-.card .content .event, .card-long .card-right .content .event, #banddiscover-main .upcoming-shows .show-card .show-info .show-title, #chatboard-main .main-area .article .message .text-area .content {
+.card .content .event, .card-long .card-right .content .event, #bandintro-main .content .upcoming-shows .show-card .show-info .show-title, #chatboard-main .main-area .article .message .text-area .content {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -941,6 +941,7 @@ main {
   width: 60px;
   height: 60px;
   opacity: 0.6;
+  z-index: 999;
   border: 1px solid white;
   transition: 0.4s;
 }
@@ -961,16 +962,63 @@ main {
   transform: translateX(10px);
 }
 .banner-section .carousel .banner-card {
+  position: relative;
   width: 700px;
   height: 500px;
   flex-shrink: 0;
   margin: 0 24px;
   cursor: pointer;
 }
-.banner-section .carousel .banner-card img {
+.banner-section .carousel .banner-card .mask {
+  position: absolute;
+}
+.banner-section .carousel .banner-card .event-img {
   object-fit: cover;
   width: 100%;
   height: 100%;
+}
+.banner-section .carousel .gallery-image-wrapper {
+  position: relative;
+  width: 700px;
+  height: 500px;
+  overflow: hidden;
+  margin: 0 24px;
+  flex-shrink: 0;
+}
+.banner-section .carousel .gallery-image-wrapper .gallery-image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.banner-section .carousel .gallery-image-wrapper .svg-overlay {
+  position: absolute;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+.banner-section .carousel .gallery-image-wrapper .overlay-text {
+  display: flex;
+  width: 120%;
+  height: auto;
+  position: absolute;
+  top: -4px;
+  left: -32px;
+  padding: 8px 4px;
+  font-family: "Dela Gothic One";
+  font-size: 36px;
+  overflow: hidden;
+  z-index: 3;
+  color: white;
+  background-color: black;
+  white-space: nowrap;
+  transform: rotate(-8deg);
+}
+.banner-section .carousel .gallery-image-wrapper .overlay-text .text {
+  margin-left: 16px;
 }
 
 /* 背景區漸層 */
@@ -1171,6 +1219,7 @@ main {
 #bandmap-main {
   position: relative;
   z-index: 0;
+  overflow: hidden;
   /* 搜尋選單 */
 }
 #bandmap-main .linear-bg {
@@ -1232,7 +1281,7 @@ main {
 #bandmap-main .newsTicker {
   width: 110%;
   height: 80px;
-  transform: rotate(-3deg);
+  transform: rotate(-3deg) translateX(-10px);
   margin-bottom: 60px;
 }
 #bandmap-main .newsTicker span {
@@ -1249,6 +1298,7 @@ main {
 #currentevent-main {
   position: relative;
   z-index: 0;
+  overflow: hidden;
   /* current event跑馬燈 */
 }
 #currentevent-main .linear-bg {
@@ -1264,8 +1314,9 @@ main {
   background-color: #0099FF;
 }
 #currentevent-main .newsTicker {
+  width: 110%;
   height: 80px;
-  transform: rotate(-3deg);
+  transform: rotate(-3deg) translateX(-10px);
   margin-bottom: 60px;
 }
 #currentevent-main .newsTicker span {
@@ -1283,10 +1334,7 @@ main {
 #banddiscover-main {
   position: relative;
   z-index: 0;
-  /* // 背景漸層 */
-  /* 樂團介紹區塊 */
-  /* 近期演出區塊 */
-  /* 音樂專輯區塊 */
+  /* 背景漸層 */
 }
 #banddiscover-main .linear-bg {
   background: linear-gradient(to bottom, #FFAF00, white, #FFF8E4);
@@ -1317,30 +1365,41 @@ main {
   height: 100%;
   opacity: 0.3;
 }
-#banddiscover-main .background {
-  width: 100vw;
-  height: auto;
-  background-image: url("/public/images/樂團圖片.png");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+
+/* 各樂團介紹分頁 */
+#bandintro-main {
+  position: relative;
 }
-#banddiscover-main .background .blank {
-  height: 80vh;
-}
-#banddiscover-main .content {
-  width: 100vw;
-  justify-content: flex-start;
-  align-items: center;
-}
-#banddiscover-main .band-intro {
+#bandintro-main .background {
+  position: relative;
   width: 100%;
-  height: auto;
+  height: 80vh;
+  z-index: -100;
+}
+#bandintro-main .background img {
+  position: fixed;
+  object-fit: cover;
+  width: 100%;
+  height: 100vh;
+  z-index: -99;
+}
+#bandintro-main .background .overlay-bg {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: -98;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75));
+}
+#bandintro-main .content {
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  /* 樂團介紹區塊 */
+  /* 近期演出區塊 */
+  /* 音樂專輯區塊 */
+  /* 其他樂團輪播區 */
+}
+#bandintro-main .content .band-intro {
   padding: 24px 96px;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.5));
   flex-direction: column;
@@ -1348,105 +1407,154 @@ main {
   align-items: flex-start;
   display: inline-flex;
 }
-#banddiscover-main .band-intro .band-name {
+#bandintro-main .content .band-intro .band-name {
   font-size: 60px;
   font-family: "Dela Gothic One";
   color: #FFAF00;
   margin-bottom: 24px;
 }
-#banddiscover-main .band-intro .band-description {
+#bandintro-main .content .band-intro .band-description {
   line-height: 2rem;
+  font-size: 20px;
+  color: white;
+  letter-spacing: 0.1rem;
 }
-#banddiscover-main .upcoming-shows {
-  margin-top: 20px;
+#bandintro-main .content .upcoming-shows {
+  margin-top: 24px;
   padding: 24px 96px;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.5));
 }
-#banddiscover-main .upcoming-shows .shows-title {
+#bandintro-main .content .upcoming-shows .shows-title {
   font-size: 60px;
   font-family: "Dela Gothic One";
   color: #FFAF00;
   padding-bottom: 24px;
 }
-#banddiscover-main .upcoming-shows .show-card {
-  display: flex;
+#bandintro-main .content .upcoming-shows .show-card {
+  font-family: "inter";
   border: 5px solid white;
   padding: 24px 48px;
   margin-bottom: 24px;
-  justify-content: space-between;
+  color: white;
+  transition: 0.4s;
+  cursor: pointer;
 }
-#banddiscover-main .upcoming-shows .show-card .show-info {
-  /* display: flex; */
+#bandintro-main .content .upcoming-shows .show-card:hover {
+  transform: translateX(10px);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+#bandintro-main .content .upcoming-shows .show-card .show-info {
   line-height: 2rem;
 }
-#banddiscover-main .upcoming-shows .show-card .show-info .show-date {
+#bandintro-main .content .upcoming-shows .show-card .show-info .show-date {
   color: #FFAF00;
   font-weight: 700;
   font-size: 24px;
 }
-#banddiscover-main .upcoming-shows .show-card .show-info .show-title {
-  font-size: 16px;
+#bandintro-main .content .upcoming-shows .show-card .show-info .show-title {
+  font-size: 20px;
   font-weight: 700;
 }
-#banddiscover-main .upcoming-shows .show-card .next-btn {
-  background-color: transparent;
+#bandintro-main .content .upcoming-shows .show-card .next-btn {
+  background: none;
+  border: none;
 }
-#banddiscover-main .music-albums {
-  margin-top: 20px;
-  padding: 24px 0;
+#bandintro-main .content .music-albums {
+  margin-top: 24px;
+  padding: 24px 96px;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.5));
 }
-#banddiscover-main .music-albums .music-title {
+#bandintro-main .content .music-albums .music-title {
+  font-size: 60px;
+  font-family: "Dela Gothic One";
+  color: #FFAF00;
+  padding-bottom: 24px;
+}
+#bandintro-main .content .music-albums .album-grid {
+  display: flex;
+}
+#bandintro-main .content .music-albums .album-grid .album-card {
+  width: 280px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  margin-right: 40px;
+}
+#bandintro-main .content .music-albums .album-grid .album-card .album-cover {
+  object-fit: cover;
+  height: 280px;
+  margin-bottom: 8px;
+}
+#bandintro-main .content .music-albums .album-grid .album-card .album-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+}
+#bandintro-main .content .gallery-container {
+  margin-top: 24px;
+  padding: 24px 0 24px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: "Dela Gothic One";
+}
+#bandintro-main .content .gallery-container .gallery-title {
   padding: 0 96px;
   font-size: 60px;
   font-family: "Dela Gothic One";
   color: #FFAF00;
   padding-bottom: 24px;
 }
-#banddiscover-main .music-albums .album-grid {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  margin: 0 20px;
+#bandintro-main .content .gallery-container .banner-section {
+  margin-bottom: 0;
 }
-#banddiscover-main .music-albums .album-grid .album-card {
-  margin: 20px;
-  justify-content: center;
-  text-align: center;
+#bandintro-main .content .gallery-container .banner-section .gallery-image-wrapper {
+  opacity: 0.7;
+  transition: 0.4s;
 }
-#banddiscover-main .music-albums .album-grid .album-card .album-title {
-  font-size: 1 16px;
-  font-weight: 700;
-}
-#banddiscover-main .music-albums .album-grid .album-card .album-cover {
-  object-fit: cover;
+#bandintro-main .content .gallery-container .banner-section .gallery-image-wrapper:hover {
+  opacity: 1;
 }
 
 /* 行事曆頁面 */
 .calendar {
   height: calc(100vh - 55px);
-  margin: 20px auto;
   background: white;
-  font-family: "Dela Gothic One", sans-serif;
+  font-family: "Dela Gothic One";
   overflow: hidden;
 }
 .calendar .menu {
-  padding: 10px 20px;
+  position: relative;
+  padding: 8px;
   background: #FFAF00;
   color: white;
 }
 .calendar .menu button {
-  font-size: 24px;
+  position: absolute;
   background: none;
   border: none;
   cursor: pointer;
-  opacity: 0.5;
+  opacity: 0.6;
   transition: 0.4s;
 }
 .calendar .menu button:hover {
   opacity: 1;
 }
+.calendar .menu .left {
+  left: 100px;
+}
+.calendar .menu .left:hover {
+  transform: translateX(-10px);
+}
+.calendar .menu .right {
+  right: 100px;
+}
+.calendar .menu .right:hover {
+  transform: translateX(10px);
+}
 .calendar .menu h2 {
+  margin: 0;
   font-size: 40px;
   text-transform: uppercase;
   font-family: "Dela Gothic One";
@@ -1459,36 +1567,46 @@ main {
   font-size: 24px;
   grid-template-columns: repeat(7, 1fr);
   background: black;
-  padding: 8px 0;
+  padding: 12px 0;
   color: white;
 }
+.calendar .body {
+  height: 100%;
+}
 .calendar .body .row {
+  height: 16vh;
   display: grid;
+  text-align: center;
   grid-template-columns: repeat(7, 1fr);
-  gap: 5px;
 }
 .calendar .body .row .cell {
-  height: 80px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  font-size: 18px;
-  font-weight: bold;
+  align-items: flex-start;
+  font-size: 24px;
+  padding-top: 4px;
   cursor: pointer;
-  border-radius: 5px;
   transition: 0.3s ease;
 }
 .calendar .body .row .cell.disabled {
-  color: #ccc;
+  color: #FFF8E4 !important;
+  background-color: white;
   pointer-events: none;
+  cursor: not-allowed;
 }
 .calendar .body .row .cell.today {
-  background: #000;
-  color: #fff;
-  border-radius: 5px;
+  background: #FFF8E4;
+  color: white;
 }
 .calendar .body .row .cell .number {
   display: inline-block;
+  color: black;
+}
+
+.cell.disabled .number {
+  color: rgba(0, 0, 0, 0.25) !important;
+  pointer-events: none;
+  cursor: not-allowed;
 }
 
 /* 樂迷留言板頁面 */
@@ -2017,4 +2135,94 @@ main {
 .login-card .login-btns .orange-btn {
   background-color: #FFAF00;
   border: none;
+}
+
+/* 會員專區頁面 */
+.collect-content {
+  height: calc(100vh - 55px);
+  margin-top: 55px;
+}
+.collect-content .collect-a {
+  flex-grow: 1;
+  margin-left: 205px;
+  padding: 24px;
+  overflow-y: auto;
+}
+.collect-content .collect-a h2 {
+  font-family: "Dela Gothic One";
+  font-size: 36px;
+  color: #FFAF00;
+  margin-bottom: 16px;
+}
+.collect-content .collect-a .card-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.collect-content .collect-a .card-list .card {
+  width: 400px;
+  margin: 0 16px 16px 0;
+}
+.collect-content .collect-a .card-list .card:hover {
+  box-shadow: none;
+  transform: none;
+}
+
+#member-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 55px;
+  padding: 0 40px;
+  background-color: black;
+  z-index: 999;
+}
+#member-bar img {
+  width: 220px;
+  padding: 12px 12px 12px 0;
+}
+#member-bar .menu a {
+  width: 32px;
+  height: 32px;
+  margin-left: 16px;
+}
+#member-bar .menu .icon-member {
+  background-image: url("public/images/icon/icon-member.svg");
+}
+#member-bar .menu .icon-msg {
+  background-image: url("public/images/icon/icon-msg.svg");
+}
+
+/* sidebar */
+#sidebar {
+  width: 205px;
+  height: calc(100vh - 55px);
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 12px;
+  /* 允許垂直滾動 */
+  background-color: white;
+}
+#sidebar .nav {
+  margin: 10px;
+  font-size: 16px;
+}
+#sidebar .nav .section-title {
+  padding: 18px 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.75);
+}
+#sidebar .nav li a {
+  display: block;
+  padding: 18px 16px;
+  color: rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+  transition: all 0.3s;
+}
+#sidebar .nav li a:hover {
+  background-color: #FFF8E4;
+  color: black;
 }/*# sourceMappingURL=style.css.map */

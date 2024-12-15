@@ -2,8 +2,6 @@ import { Link } from "react-router-dom"
 
 function Footer() {
 
-
-
     return (
         <div id="footer">
             <div className="footer-up">
