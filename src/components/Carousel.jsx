@@ -18,8 +18,8 @@ function Carousel() {
         <div className="banner-section">
             {/* 下一張按鈕 */}
             <div className="buttons">
-                <button className="cta-btn left"><img src="/public/images/btn-next-b&w.svg" alt="" /></button>
-                <button className="cta-btn right"><img src="/public/images/btn-next-b&w.svg" alt="" /></button>
+                <button className="cta-btn left"><img src="/images/btn-next-b&w.svg" alt="" /></button>
+                <button className="cta-btn right"><img src="/images/btn-next-b&w.svg" alt="" /></button>
             </div>
             {/* 輪播卡片 */}
             <div className="carousel">
@@ -27,7 +27,7 @@ function Carousel() {
                     eventInfo.map((banner) => {
                         return (
                             <figure className="banner-card" key={banner.key}>
-                                <img className="mask" src="/public/images/mask-blue.svg" alt="" />
+                                <img className="mask" src="/images/mask-blue.svg" alt="" />
                                 <img className="event-img" src={banner.img} alt="" />
                             </figure>
                         )

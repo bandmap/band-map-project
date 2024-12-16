@@ -25,7 +25,7 @@ function UpcomingEvents() {
                         <p className="show-venue">{show.venue}</p>
                     </div>
                     <button className="next-btn">
-                        <img src="/public/images/btn-next-w&black.svg" alt="" className="next-icon" />
+                        <img src="/images/btn-next-w&black.svg" alt="" className="next-icon" />
                     </button>
                 </div>
             ))}

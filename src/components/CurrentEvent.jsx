@@ -11,11 +11,11 @@ function CurrentEvent() {
 
     // 樂團介紹卡片array
     const arrEventCard = [
-        { img: '/public/images/近期活動-揪音秘.jpg', key: '1', name: '近期活動-揪音秘', event: '揪音秘', time: '2024/11/10 (日）', place: 'Legacy Taipei 音樂展演空間' },
+        { img: '/images/近期活動-揪音秘.jpg', key: '1', name: '近期活動-揪音秘', event: '揪音秘', time: '2024/11/10 (日）', place: 'Legacy Taipei 音樂展演空間' },
 
-        { img: '/public/images/近期活動-刑男大主廚.jpg', key: '2', name: '近期活動-刑男大主廚', event: '刑男大主廚', time: '2024/11/24 (日）', place: 'Legacy Taipei 音樂展演空間' },
+        { img: '/images/近期活動-刑男大主廚.jpg', key: '2', name: '近期活動-刑男大主廚', event: '刑男大主廚', time: '2024/11/24 (日）', place: 'Legacy Taipei 音樂展演空間' },
 
-        { img: '/public/images/近期活動-開往天堂的海盜船.jpg', key: '3', name: '近期活動-開往天堂的海盜船', event: '開往天堂的海盜船', time: '2024/11/29 (五）', place: 'Legacy Taipei 音樂展演空間' },
+        { img: '/images/近期活動-開往天堂的海盜船.jpg', key: '3', name: '近期活動-開往天堂的海盜船', event: '開往天堂的海盜船', time: '2024/11/29 (五）', place: 'Legacy Taipei 音樂展演空間' },
     ]
 
     const [hoverIndex, setHoverIndex] = useState(null);
@@ -42,7 +42,7 @@ function CurrentEvent() {
                                         <div className="text-left">
                                             <h4>{e.event}</h4>
                                             <div className="place">
-                                                <figure><img src="/public/images/icon/icon-地點.svg" alt="icon-地點" /></figure>
+                                                <figure><img src="/images/icon/icon-地點.svg" alt="icon-地點" /></figure>
                                                 <p>{e.place}</p>
                                             </div>
                                         </div>
@@ -65,7 +65,7 @@ function CurrentEvent() {
                 </p>
                 <div className="cta">
                     <span>點進探索</span>
-                    <Link to='/event'><button className="cta-btn"><img src="/public/images/btn-next-w&p.svg" alt="" /></button></Link>
+                    <Link to='/event'><button className="cta-btn"><img src="/images/btn-next-w&p.svg" alt="" /></button></Link>
                 </div>
             </div>
         </div>

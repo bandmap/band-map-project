@@ -15,7 +15,7 @@ function BandDiscoverPage() {
                 <div id="banddiscover-main">
                     {/* 背景區 */}
                     <div className="linear-bg">
-                        <img src="/public/images/texture.png" alt="" />
+                        <img src="/images/texture.png" alt="" />
                     </div>
                     {/* 頁面topbar */}
                     <div className="topbar">
@@ -26,7 +26,7 @@ function BandDiscoverPage() {
                             </div>
                         </div>
                         <div className="right-part">
-                            <img src="/public/images/line.svg" alt="" />
+                            <img src="/images/line.svg" alt="" />
                         </div>
                     </div>
                     {/* 輪播banner區 */}

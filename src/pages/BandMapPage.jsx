@@ -44,7 +44,7 @@ function BandMapPage() {
                 <div id="bandmap-main">
                     {/* 背景區 */}
                     <div className="linear-bg">
-                        <img src="/public/images/texture.png" alt="" />
+                        <img src="/images/texture.png" alt="" />
                     </div>
                     {/* 頁面topbar */}
                     <div className="topbar">

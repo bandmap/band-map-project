@@ -26,9 +26,9 @@ function EventInfoCard() {
             <button>購票連結</button>
             <div className="share">
                 <p>Share :</p>
-                <figure><img src="/public/images/icon/icon-facebook.svg" alt="fb" /></figure>
-                <figure><img src="/public/images/icon/icon-instagram.svg" alt="ig" /></figure>
-                <figure><img src="/public/images/icon/icon-link.svg" alt="link" /></figure>
+                <figure><img src="/images/icon/icon-facebook.svg" alt="fb" /></figure>
+                <figure><img src="/images/icon/icon-instagram.svg" alt="ig" /></figure>
+                <figure><img src="/images/icon/icon-link.svg" alt="link" /></figure>
             </div>
             <button>加入行事曆</button>
             <button>加入收藏</button>
