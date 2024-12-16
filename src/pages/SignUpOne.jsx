@@ -16,8 +16,8 @@ function SignUpOne() {
             <NavBar />
             <main>
                 <div className="signup-bg">
-                    <img className="bg-smile" src="/public/images/bg-smile.svg" alt="" />
-                    <img className="bg-blue12" src="/public/images/bg-Vector.svg" alt="" />
+                    <img className="bg-smile" src={`${import.meta.env.BASE_URL}/images/bg-smile.svg`} alt="" />
+                    <img className="bg-blue12" src={`${import.meta.env.BASE_URL}/images/bg-Vector.svg`} alt="" />
                 </div>
                 <div className="login-popup">
                     <div className="login-card">

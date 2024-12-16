@@ -42,7 +42,7 @@ function BandMap() {
                 <div className="cta">
                     <span>開始查詢</span>
                     <Link to="/search">
-                        <button className="cta-btn"><img src="../images/btn-next-b&w.svg" alt="" /></button>
+                        <button className="cta-btn"><img src={`${import.meta.env.BASE_URL}/images/btn-next-b&w.svg`} alt="" /></button>
                     </Link>
                 </div>
             </div>

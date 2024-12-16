@@ -14,7 +14,7 @@ function LogIn() {
                     </div>
                     <div className="login-right">
                         <div className="login-card">
-                            <figure><img src="../images/logo-black.svg" alt="" /></figure>
+                            <figure><img src={`${import.meta.env.BASE_URL}/images/logo-black.svg`} alt="" /></figure>
                             <p>打造屬於你的專屬音樂行事曆！</p>
                             <div className="card-content">
 

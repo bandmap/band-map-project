@@ -23,11 +23,12 @@ function EventOne() {
 
     useEffect(() => {
         (async () => {
-            const data = await axios.get('/json/eventInfo.json');
-            console.log(data);
+            // const data = await axios.get('/json/eventInfo.json');
+            // console.log(data);
+            const data = await axios.get('https://bandmap.github.io/band-map-project/json/eventInfo.json');
 
             const { eventinfo } = data.data.eventdata;
-            console.log(eventinfo);
+            // console.log(eventinfo);
             setEventInfo(eventinfo);
         })()
     }, [])
@@ -37,14 +38,14 @@ function EventOne() {
             <NavBar />
             <main className="event-page">
                 <div className="event-banner">
-                    <figure className="eventpic"><img src="/images/活動/活動頁-揪音秘-橫式.jpg" alt="活動頁-刑男大主廚" /></figure>
+                    <figure className="eventpic"><img src={`${import.meta.env.BASE_URL}/images/活動/活動頁-揪音秘-橫式.jpg`} alt="活動頁-揪音秘" /></figure>
                 </div>
                 <div className="content-bg-up">
-                    <img src="/images/資訊頁-bg圖形.svg" alt="" />
+                    <img src={`${import.meta.env.BASE_URL}/images/資訊頁-bg圖形.svg`} alt="" />
                 </div>
                 <div className="content-down">
                     <div className="left-part">
-                        <figure><img src="/images/活動/近期活動-揪音秘.jpg" alt="" /></figure>
+                        <figure><img src={`${import.meta.env.BASE_URL}/images/活動/近期活動-揪音秘.jpg`} alt="" /></figure>
                         <div className="content-words">
                             <h2>挺音樂｜揪音秘</h2>
                             <p>這次音樂派對將為你帶來5組獨具特色的音樂人，共同呈現音樂的多元樣貌！
@@ -89,8 +90,8 @@ function EventOne() {
                 <div className="cards-bottom">
                     {/* 下一張按鈕 */}
                     <div className="buttons">
-                        <button className="cta-btn left"><img src="/images/btn-next-b&w.svg" alt="" /></button>
-                        <button className="cta-btn right"><img src="/images/btn-next-b&w.svg" alt="" /></button>
+                        <button className="cta-btn left"><img src={`${import.meta.env.BASE_URL}/images/btn-next-b&w.svg`} alt="" /></button>
+                        <button className="cta-btn right"><img src={`${import.meta.env.BASE_URL}/images/btn-next-b&w.svg`} alt="" /></button>
                     </div>
                     {
                         eventInfo.map((searchcard) => {

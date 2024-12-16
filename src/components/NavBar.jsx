@@ -29,7 +29,7 @@ function NavBar() {
 
     return (
         <div id="nav-bar" className="sticky-header">
-            <h1><Link to='/'><img src="/images/logo.svg" alt="logo" /></Link></h1>
+            <h1><Link to='/'><img src={`${import.meta.env.BASE_URL}/images/logo.svg`} alt="logo" /></Link></h1>
             <ul className="menu">
                 <li><Link to='/search'><p>演出搜尋</p></Link></li>
                 <li><Link to='/band'><p>本月樂團推薦</p></Link></li>

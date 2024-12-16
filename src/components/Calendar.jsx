@@ -61,9 +61,9 @@ function Calendar() {
     return (
         <div className="calendar">
             <div className="menu">
-                <button className='left' onClick={prevMonth}><img src="/public/images/btn-back.svg" /></button>
+                <button className='left' onClick={prevMonth}><img src={`${import.meta.env.BASE_URL}/images/btn-back.svg`} /></button>
                 <h2>{currentMonth()}</h2>
-                <button className='right' onClick={nextMonth}><img src="/public/images/btn-next.svg" alt="" /></button>
+                <button className='right' onClick={nextMonth}><img src={`${import.meta.env.BASE_URL}/images/btn-next.svg`} alt="" /></button>
             </div>
             {renderWeekDays()}
             {renderDays()}

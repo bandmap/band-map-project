@@ -1,6 +1,7 @@
 {
   "name": "band-map-project",
   "private": true,
+  "homepage": "https://bandmap.github.io/band-map-project",
   "version": "0.0.0",
   "type": "module",
   "scripts": {

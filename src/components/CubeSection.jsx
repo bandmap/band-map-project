@@ -84,12 +84,12 @@ function CubeSection() {
                 <div className="cube-left">
                     <Link to='/search' className='row-left-up'>
                         <figure className="cube1 cube-btn">
-                            <img className='texture' src="/images/texture.png" alt="背景材質" />
-                            <img className='logo' src="/images/logo.svg" alt="隨Band地圖logo" />
+                            <img className='texture' src={`${import.meta.env.BASE_URL}/images/texture.png`} alt="背景材質" />
+                            <img className='logo' src={`${import.meta.env.BASE_URL}/images/logo.svg`} alt="隨Band地圖logo" />
                         </figure>
                         <figure className="cube2 cube-btn">
-                            <img className='texture' src="/images/texture.png" alt="背景材質" />
-                            <img src="/images/logo.svg" alt="隨Band地圖logo" /></figure>
+                            <img className='texture' src={`${import.meta.env.BASE_URL}/images/texture.png`} alt="背景材質" />
+                            <img src={`${import.meta.env.BASE_URL}/images/logo.svg`} alt="隨Band地圖logo" /></figure>
                     </Link>
 
                     <div className='row-left-down'>
@@ -114,7 +114,7 @@ function CubeSection() {
                                 </figure>
                                 <Link to='/band' id='changeBandTitle'
                                     className="cube5 cube-btn">
-                                    <img className='texture' src="/images/texture.png" alt="背景材質" />
+                                    <img className='texture' src={`${import.meta.env.BASE_URL}/images/texture.png`} alt="背景材質" />
                                     <p id='change1' className='band-introducement btn-ani' href="">BAND利商店</p>
                                     <figure>
                                         <svg className='arrow' height="57" viewBox="0 0 556 57" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -129,7 +129,7 @@ function CubeSection() {
                             <div className="row-2">
                                 <div className="row-right-left">
                                     <div className='row-right-left-up'>
-                                        <figure className="cube6"><img src="/images/line.svg" alt="" /></figure>
+                                        <figure className="cube6"><img src={`${import.meta.env.BASE_URL}/images/line.svg`} alt="" /></figure>
 
                                         <figure className="cube7">
                                             {/* 笑臉動畫 */}
@@ -146,7 +146,7 @@ function CubeSection() {
                                     </div>
                                     <Link to='/calendar' id='changeBoardTitle'
                                         className="cube9 cube-btn">
-                                        <img className='texture' src="/images/texture.png" alt="背景材質" />
+                                        <img className='texture' src={`${import.meta.env.BASE_URL}/images/texture.png`} alt="背景材質" />
                                         <p id='change2' className='band-discussion' href="">隨BAND排</p>
                                         <figure>
                                             <svg className='arrow' height="57" viewBox="0 0 556 57" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -186,7 +186,7 @@ function CubeSection() {
                     </div>
                     {/* 眼睛動畫 */}
                     <figure className="cube13">
-                        <img className='texture' src="/images/texture.png" alt="背景材質" />
+                        <img className='texture' src={`${import.meta.env.BASE_URL}/images/texture.png`} alt="背景材質" />
                         {eyesSvg}
                     </figure>
 

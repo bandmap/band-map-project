@@ -24,7 +24,8 @@ function CurrentEventPage() {
 
     useEffect(() => {
         (async () => {
-            const data = await axios.get('/json/eventInfo.json');
+            // const data = await axios.get('/json/eventInfo.json');
+            const data = await axios.get('https://bandmap.github.io/band-map-project/json/eventInfo.json');
 
             const { eventinfo } = data.data.eventdata;
             setEventInfo(eventinfo);
@@ -38,7 +39,7 @@ function CurrentEventPage() {
                 <div id="currentevent-main">
                     {/* 背景區 */}
                     <div className="linear-bg">
-                        <img src="/images/texture.png" alt="" />
+                        <img src={`${import.meta.env.BASE_URL}/images/texture.png`} alt="" />
                     </div>
                     {/* 頁面topbar */}
                     <div className="topbar">

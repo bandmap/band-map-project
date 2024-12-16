@@ -16,7 +16,7 @@ function ChatBoardPage() {
                 <div id="chatboard-main">
                     {/* 背景區 */}
                     <div className="linear-bg">
-                        <img src="/images/texture.png" alt="" />
+                        <img src={`${import.meta.env.BASE_URL}/images/texture.png`} alt="" />
                     </div>
                     {/* 頁面topbar */}
                     <div className="topbar">
@@ -28,12 +28,12 @@ function ChatBoardPage() {
                         </div>
                         <div className="right-part">
                             <div className="smile-face-roll">
-                                <img className="smile-face" src="/images/chatboard.svg" alt="" />
-                                <img className="smile-face" src="/images/chatboard.svg" alt="" />
+                                <img className="smile-face" src={`${import.meta.env.BASE_URL}/images/chatboard.svg`} alt="" />
+                                <img className="smile-face" src={`${import.meta.env.BASE_URL}/images/chatboard.svg`} alt="" />
                             </div>
                             <div className="smile-face-roll">
-                                <img className="smile-face" src="/images/chatboard.svg" alt="" />
-                                <img className="smile-face" src="/images/chatboard.svg" alt="" />
+                                <img className="smile-face" src={`${import.meta.env.BASE_URL}/images/chatboard.svg`} alt="" />
+                                <img className="smile-face" src={`${import.meta.env.BASE_URL}/images/chatboard.svg`} alt="" />
                             </div>
                         </div>
                     </div>
@@ -42,7 +42,7 @@ function ChatBoardPage() {
                         <div className="searchbar">
                             <input type="search" className="search" title="search" placeholder="關鍵字" />
                             <figure className="magnifier">
-                                <img src="/images/icon/icon-search.svg" alt="smile-face" />
+                                <img src={`${import.meta.env.BASE_URL}/images/icon/icon-search.svg`} alt="smile-face" />
                             </figure>
                         </div>
                         {/* filter */}

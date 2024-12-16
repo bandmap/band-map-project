@@ -5,11 +5,11 @@ function Footer() {
     return (
         <div id="footer">
             <div className="footer-up">
-                <figure><img src="/images/Footer.svg" alt="" />
+                <figure><img src={`${import.meta.env.BASE_URL}/images/Footer.svg`} alt="" />
                 </figure>
             </div>
             <div className="footer-main">
-                <figure className="logo"><Link to='/'><img src="/images/logo.svg" alt="" /></Link></figure>
+                <figure className="logo"><Link to='/'><img src={`${import.meta.env.BASE_URL}/images/logo.svg`} alt="" /></Link></figure>
                 <ul className="menu">
                     <li><Link to='/search'>演出搜尋</Link></li>
                     <li><Link to='/band'>本月樂團推薦</Link></li>
