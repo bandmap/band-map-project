@@ -1,7 +1,16 @@
-import { Link } from "react-router-dom"
-import NavBar from "./NavBar"
+import { Link, useNavigate } from "react-router-dom"
+import NavBar from "../components/NavBar"
 
 function SignUpOne() {
+    const navigate = useNavigate();
+
+    const handleSignUp2 = () => {
+        navigate('/signup2');
+    }
+    const handleLogIn = () => {
+        navigate('/login');
+    }
+
     return (
         <>
             <NavBar />
@@ -20,10 +29,10 @@ function SignUpOne() {
                             {/* 登入/註冊表單 */}
                             <form action="">
                                 <div className="login-btns">
-                                    <Link to='/signup2' className="orange-btn">註冊</Link>
-                                    <Link to='/signup2' className="orange-btn">使用Google帳號註冊</Link>
+                                    <button onClick={handleSignUp2} className="orange-btn">註冊</button>
+                                    <button onClick={handleSignUp2} className="orange-btn">使用Google帳號註冊</button>
                                     <div className="line"></div>
-                                    <Link to='/login' className="normal-btn">登入</Link>
+                                    <button onClick={handleLogIn} className="normal-btn">登入</button>
                                 </div>
                             </form>
                         </div>

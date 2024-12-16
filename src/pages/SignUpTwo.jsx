@@ -1,7 +1,14 @@
-import { Link } from "react-router-dom"
-import NavBar from "./NavBar"
+import { Link, useNavigate } from "react-router-dom"
+import NavBar from "../components/NavBar";
+
 
 function SignUpTwo() {
+    const navigate = useNavigate();
+
+    const handleSignUp3 = () => {
+        navigate('/signup3');
+    }
+    
     return (
         <>
             <NavBar />
@@ -39,8 +46,8 @@ function SignUpTwo() {
                                 </div>
 
                                 <div className="login-btns">
-                                    <Link to='/signup3' input type="submit" className="orange-btn" name="submit-btn" id="submit-btn">下一步</Link>
-                                    <Link to='/signup1' input type="submit" className="normal-btn" name="submit-btn" id="submit-btn">下一步</Link>
+                                    <button onClick={handleSignUp3} input type="submit" className="orange-btn" name="submit-btn" id="submit-btn">下一步</button>
+                                    <button onClick={() => { navigate(-1) }} input type="submit" className="normal-btn" name="submit-btn" id="submit-btn">上一步</button>
                                 </div>
                             </form>
                         </div>

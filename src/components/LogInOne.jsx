@@ -1,6 +1,11 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 function LogInOne({ togglePopup }) {
+    const navigate = useNavigate();
+
+    const handleSignUp1 = () => {
+        navigate('/signup1');
+    }
 
     return (
         <>
@@ -28,7 +33,7 @@ function LogInOne({ togglePopup }) {
                             <input type="submit" className="orange-btn" name="submit-btn" id="submit-btn" value="確認" />
                             <input type="submit" className="orange-btn" name="submit-btn" id="submit-google-btn" value="使用Google帳號登入" />
                             <div className="line"></div>
-                            <Link to='/signup1' className="normal-btn">註冊</Link>
+                            <button onClick={handleSignUp1} className="normal-btn">註冊</button>
                         </div>
                     </form>
                 </div>
